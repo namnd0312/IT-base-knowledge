@@ -1,0 +1,17 @@
+{
+  "paths": {
+    "plans": "plans",
+    "docs": "docs"
+  },
+  "plan": {
+    "reportsDir": "reports"
+  },
+  "guards": {
+    "scout": true,
+    "privacy": true
+  },
+  "locale": {
+    "responseLanguage": null
+  },
+  "assertions": []
+}

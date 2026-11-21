@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "type": "command",
+        "command": "node .github/copilot-kit/hooks/session-start-context.cjs",
+        "cwd": ".",
+        "timeoutSec": 10
+      }
+    ],
+    "subagentStart": [
+      {
+        "type": "command",
+        "command": "node .github/copilot-kit/hooks/subagent-start-context.cjs",
+        "cwd": ".",
+        "timeoutSec": 10
+      }
+    ],
+    "preToolUse": [
+      {
+        "type": "command",
+        "command": "node .github/copilot-kit/hooks/pre-tool-guard.cjs",
+        "cwd": ".",
+        "timeoutSec": 10
+      }
+    ]
+  }
+}
