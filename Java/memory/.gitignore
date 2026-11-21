@@ -1,0 +1,6 @@
+# San pham sinh ra khi chay demo - khong commit
+out/
+dumps/
+*.hprof
+*.jfr
+*.log
