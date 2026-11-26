@@ -1,0 +1,15 @@
+server:
+  # 8088 de tranh dung cong 8080 hay bi chiem. Doi nhanh: --server.port=9000
+  port: 8088
+
+app:
+  jwt:
+    # CHI DUNG CHO DEMO. Moi truong that: lay tu bien moi truong / secret manager, khong commit.
+    # HS256 can khoa toi thieu 32 byte.
+    secret: ${JWT_SECRET:demo-only-secret-change-me-at-least-32-bytes}
+    ttl-minutes: 15
+
+logging:
+  level:
+    # Bat DEBUG de thay request di qua filter nao, vi sao bi tu choi (xem bai 08)
+    org.springframework.security: INFO

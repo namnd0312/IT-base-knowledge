@@ -1,0 +1,4 @@
+# San pham sinh ra khi build/chay demo - khong commit
+target/
+*.log
+cookies.txt
