@@ -1,0 +1,37 @@
+# Key material comes from ../out/pki, created by ../demos/create-demo-pki.sh.
+# Run the app from the spring-boot-demo/ directory so these relative paths resolve.
+spring:
+  ssl:
+    bundle:
+      jks:
+        demo-server:
+          key:
+            alias: server
+          keystore:            # who the server is: private key + chain signed by the demo CA
+            location: file:../out/pki/server.p12
+            password: ${KEYSTORE_PASSWORD:changeit}
+            type: PKCS12
+          truststore:          # which client certificates it believes: those signed by the demo CA
+            location: file:../out/pki/truststore.p12
+            password: ${KEYSTORE_PASSWORD:changeit}
+            type: PKCS12
+          options:
+            enabled-protocols: TLSv1.3,TLSv1.2
+
+server:
+  port: 8443
+  ssl:
+    bundle: demo-server
+    # want: ask every client for a certificate but let the handshake succeed without one.
+    # The filter chain then decides per path: /internal/** requires it, /api/** uses JWT instead.
+    # Use "need" when every endpoint is service-to-service.
+    client-auth: want
+
+app:
+  jwt:
+    issuer: https://auth.demo.local
+    audience: orders-api
+
+logging:
+  level:
+    org.springframework.security: INFO

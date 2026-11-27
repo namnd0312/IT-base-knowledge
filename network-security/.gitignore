@@ -1,0 +1,9 @@
+# Build output and generated demo PKI (private keys, keystores, CSRs) - never commit
+out/
+*.log
+*.pcap
+*.p12
+*.pem
+*.key
+*.csr
+*.crt
