@@ -1,0 +1,5 @@
+# Build output and diagnostics produced while running the demos - do not commit
+out/
+*.log
+*.jfr
+*.hprof
